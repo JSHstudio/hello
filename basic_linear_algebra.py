@@ -1,6 +1,5 @@
 def vector_size_check(*vector_variables):
-    return all([len(vector_variables[0]) == len(v) for v in [*vector_variables]])
-    # return all(len(vector_variables[0]) == x for x in [len(vector) for vector in vetor_variables[1:]])
+    return all(len(vector_variables[0]) == x for x in [len(vector) for vector in vetor_variables[1:]])
 
 def vector_addition(*vector_variables):
     if vector_size_check(*vector_variables) == False:
