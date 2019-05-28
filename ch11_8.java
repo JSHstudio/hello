@@ -10,22 +10,22 @@ public class ch11_8 {
 		List<String> list = new ArrayList<String>();
 		list.add("개미");
 		list.add("개미");
-		System.out.println(list);
+		System.out.println(list);//조건에 맞는 ArrayList생성
 		List<String> al1 = new ArrayList<>(list);
-		System.out.println("nCopies : " + al1);
-		al1.set(0, "벌");
+		System.out.println("nCopies : " + al1);//복사 된 al1리스트 생성
+		al1.set(0, "벌");//안에 있는 값 교체
 		al1.set(1, "벌");
 		System.out.println("'벌'을 채운 후 : " + al1);
 		for(String i : s) {
-			al1.add(i);
+			al1.add(i);//스트링배열의 원소를 추가
 		}
 		System.out.println("리스트를 모두 추가한 후 : " + al1);
-		Collections.sort(al1);
+		Collections.shuffle(al1);//리스트 임의로 섞음
 		System.out.println("리스트를 섞은 후 : " + al1);
-		Collections.reverse(al1);
+		Collections.reverse(al1);//리스트 역순 정렬
 		System.out.println("리스트를 역순으로 정렬한 후 : " + al1);
-		System.out.println("리스트에서 최소 : " + Collections.min(al1));
-		System.out.println("리스트에서 최대 : " + Collections.max(al1));
-		System.out.println("리스트에서 벌의 빈도 : " + Collections.frequency(al1, "벌"));
+		System.out.println("리스트에서 최소 : " + Collections.min(al1));//리스트 최소값 출력 Collections모듈 이용
+		System.out.println("리스트에서 최대 : " + Collections.max(al1));//리스트 최대값 출력 Collections모듈 이용
+		System.out.println("리스트에서 벌의 빈도 : " + Collections.frequency(al1, "벌"));//해당 리스트의 원소의 빈도수를 count
 	}
 }
