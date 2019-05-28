@@ -13,8 +13,7 @@ public class ch11_8 {
 		System.out.println(list);//조건에 맞는 ArrayList생성
 		List<String> al1 = new ArrayList<>(list);
 		System.out.println("nCopies : " + al1);//복사 된 al1리스트 생성
-		al1.set(0, "벌");//안에 있는 값 교체
-		al1.set(1, "벌");
+		Collections.fill(al1, "벌");//리스트에 값 변경
 		System.out.println("'벌'을 채운 후 : " + al1);
 		for(String i : s) {
 			al1.add(i);//스트링배열의 원소를 추가
