@@ -8,8 +8,7 @@ public class ch11_8 {
 		// TODO Auto-generated method stub
 		String[] s = {"독수리", "고양이", "강아지"};
 		List<String> list = new ArrayList<String>();
-		list.add("개미");
-		list.add("개미");
+		Collections.addAll(list, "개미", "개미");
 		System.out.println(list);//조건에 맞는 ArrayList생성
 		List<String> al1 = new ArrayList<>(list);
 		System.out.println("nCopies : " + al1);//복사 된 al1리스트 생성
