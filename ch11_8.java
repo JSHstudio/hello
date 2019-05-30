@@ -6,24 +6,21 @@ public class ch11_8 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String[] s = {"µ¶¼ö¸®", "°í¾çÀÌ", "°­¾ÆÁö"};
-		List<String> list = new ArrayList<String>();
-		Collections.addAll(list, "°³¹Ì", "°³¹Ì");
-		System.out.println(list);//Á¶°Ç¿¡ ¸Â´Â ArrayList»ı¼º
+		String[] s = {"ë…ìˆ˜ë¦¬", "ê³ ì–‘ì´", "ê°•ì•„ì§€"};
+		List<String> list = new ArrayList<String>(Arrays.asList("ê°œë¯¸", "ê°œë¯¸"));
+		System.out.println(list);//ì¡°ê±´ì— ë§ëŠ” ArrayListìƒì„±
 		List<String> al1 = new ArrayList<>(list);
-		System.out.println("nCopies : " + al1);//º¹»ç µÈ al1¸®½ºÆ® »ı¼º
-		Collections.fill(al1, "¹ú");//¸®½ºÆ®¿¡ °ª º¯°æ
-		System.out.println("'¹ú'À» Ã¤¿î ÈÄ : " + al1);
-		for(String i : s) {
-			al1.add(i);//½ºÆ®¸µ¹è¿­ÀÇ ¿ø¼Ò¸¦ Ãß°¡
-		}
-		System.out.println("¸®½ºÆ®¸¦ ¸ğµÎ Ãß°¡ÇÑ ÈÄ : " + al1);
-		Collections.shuffle(al1);//¸®½ºÆ® ÀÓÀÇ·Î ¼¯À½
-		System.out.println("¸®½ºÆ®¸¦ ¼¯Àº ÈÄ : " + al1);
-		Collections.reverse(al1);//¸®½ºÆ® ¿ª¼ø Á¤·Ä
-		System.out.println("¸®½ºÆ®¸¦ ¿ª¼øÀ¸·Î Á¤·ÄÇÑ ÈÄ : " + al1);
-		System.out.println("¸®½ºÆ®¿¡¼­ ÃÖ¼Ò : " + Collections.min(al1));//¸®½ºÆ® ÃÖ¼Ò°ª Ãâ·Â Collections¸ğµâ ÀÌ¿ë
-		System.out.println("¸®½ºÆ®¿¡¼­ ÃÖ´ë : " + Collections.max(al1));//¸®½ºÆ® ÃÖ´ë°ª Ãâ·Â Collections¸ğµâ ÀÌ¿ë
-		System.out.println("¸®½ºÆ®¿¡¼­ ¹úÀÇ ºóµµ : " + Collections.frequency(al1, "¹ú"));//ÇØ´ç ¸®½ºÆ®ÀÇ ¿ø¼ÒÀÇ ºóµµ¼ö¸¦ count
+		System.out.println("nCopies : " + al1);//ë³µì‚¬ ëœ al1ë¦¬ìŠ¤íŠ¸ ìƒì„±
+		Collections.fill(al1, "ë²Œ");//ë¦¬ìŠ¤íŠ¸ì— ê°’ ë³€ê²½
+		System.out.println("'ë²Œ'ì„ ì±„ìš´ í›„ : " + al1);
+		Collections.addAll(al1, s);//ë¦¬ìŠ¤íŠ¸ ì¶”ê°€ ë©”ì†Œë“œ 
+		System.out.println("ë¦¬ìŠ¤íŠ¸ë¥¼ ëª¨ë‘ ì¶”ê°€í•œ í›„ : " + al1);
+		Collections.shuffle(al1);//ë¦¬ìŠ¤íŠ¸ ì„ì˜ë¡œ ì„ìŒ
+		System.out.println("ë¦¬ìŠ¤íŠ¸ë¥¼ ì„ì€ í›„ : " + al1);
+		Collections.reverse(al1);//ë¦¬ìŠ¤íŠ¸ ì—­ìˆœ ì •ë ¬
+		System.out.println("ë¦¬ìŠ¤íŠ¸ë¥¼ ì—­ìˆœìœ¼ë¡œ ì •ë ¬í•œ í›„ : " + al1);
+		System.out.println("ë¦¬ìŠ¤íŠ¸ì—ì„œ ìµœì†Œ : " + Collections.min(al1));//ë¦¬ìŠ¤íŠ¸ ìµœì†Œê°’ ì¶œë ¥ Collectionsëª¨ë“ˆ ì´ìš©
+		System.out.println("ë¦¬ìŠ¤íŠ¸ì—ì„œ ìµœëŒ€ : " + Collections.max(al1));//ë¦¬ìŠ¤íŠ¸ ìµœëŒ€ê°’ ì¶œë ¥ Collectionsëª¨ë“ˆ ì´ìš©
+		System.out.println("ë¦¬ìŠ¤íŠ¸ì—ì„œ ë²Œì˜ ë¹ˆë„ : " + Collections.frequency(al1, "ë²Œ"));//í•´ë‹¹ ë¦¬ìŠ¤íŠ¸ì˜ ì›ì†Œì˜ ë¹ˆë„ìˆ˜ë¥¼ count
 	}
 }
