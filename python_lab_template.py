@@ -1,6 +1,4 @@
 # Please fill out this stencil and submit using the provided submission script.
-
-
 ## 1: (Task 1) Minutes in a Week
 minite = 24 * 7 * 60
 print(minite)
@@ -140,7 +138,7 @@ print({number : (number // len(digits) ** 2, number % len(digits) ** 2 // len(di
 id2salary = {0:1000.0, 1:1200.50, 2:990}
 names = ['Larry', 'Curly', 'Moe']
 # Replace { ... } with a one-line dictionary comprehension that uses id2salary and names.
-{name : salary for name, salary in zip(names, id2salary.values())}
+print({name : salary for name, salary in zip(names, id2salary.values())})
 
 ## 26: (Task 26) Procedure nextInts
 # Complete the procedure definition by replacing [ ... ] with a one-line list comprehension
