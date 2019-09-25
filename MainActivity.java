@@ -34,8 +34,10 @@ public class MainActivity extends AppCompatActivity {
         switch(op){
             case 0:
                 result = num1 + num2;
+                break;
             case 1:
                 result = num1 - num2;
+                break;
         }
         textView1.setText(cal + "=");
         Button button = (Button) findViewById(R.id.Button);
