@@ -62,8 +62,11 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "맞습니다.", Toast.LENGTH_LONG).show();
                     count++;
                     correct++;
+                    createCal(view);
+                    editText.getText().clear();
                 }else{
                     Toast.makeText(getApplicationContext(), "틀렸습니다. 정답은 " + result, Toast.LENGTH_LONG).show();
+                    editText.getText().clear();
                     count++;
                 }
             }
