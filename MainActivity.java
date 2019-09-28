@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "틀렸습니다. 정답은 " + result, Toast.LENGTH_LONG).show();
                     editText.getText().clear();
                     count++;
+                    createCal(view);
+                    editText.getText().clear();
                 }
             }
         });
@@ -76,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 textView2 = findViewById(R.id.text2);
-                textView2.setText(String.valueOf(count) + "번 중에 " + String.valueOf(correct) + "번 성공, 정답률:" + String.valueOf((double)correct /(double)count * 100) + "%");
+                textView2.setText(String.valueOf(count) + "번 중에 " + String.valueOf(correct) + "번 성공, 정답률:" + String.valueOf(String.format("%.2f",(double)correct /(double)count * 100)) + "%");
             }
         });
     }
