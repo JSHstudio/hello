@@ -1,106 +1,85 @@
-package com.example.hw1;
+package com.example.a2_;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.EditText;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.GridLayout;
+import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    TextView textView1;
-    TextView textView2;
-    String[] oper = {"+", "-"};
-    Random random = new Random();
-    int num1 = random.nextInt(99) + 1;
-    int num2 = random.nextInt(99) + 1;
-    int op = random.nextInt(2);
-    String numStr1 = String.valueOf(num1);
-    String numStr2 = String.valueOf(num2);
-    String cal = numStr1 + oper[op] + numStr2;
-    int result;
-    int count= 0, correct = 0;
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView1 = findViewById(R.id.text);
-        switch(op){
-            case 0:
-                result = num1 + num2;
-                break;
-            case 1:
-                result = num1 - num2;
-                break;
-        }
-        textView1.setText(cal + "=");
-        Button button = (Button) findViewById(R.id.Button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                createCal(view);
-            }
-        });
-        Button button2 = (Button) findViewById(R.id.Button2);
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                EditText editText = (EditText)findViewById(R.id.Edit1);
-                String str = editText.getText().toString();
-                if(str.equals("")){//빈값이 넘어올때의 처리
-                    Toast.makeText(getApplicationContext(), "답을 입력하세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if(Integer.parseInt(str) == result) {
-                    Toast.makeText(getApplicationContext(), "맞습니다.", Toast.LENGTH_LONG).show();
-                    count++;
-                    correct++;
-                    createCal(view);
-                    editText.getText().clear();
-                }else{
-                    Toast.makeText(getApplicationContext(), "틀렸습니다. 정답은 " + result, Toast.LENGTH_LONG).show();
-                    editText.getText().clear();
-                    count++;
-                    createCal(view);
-                    editText.getText().clear();
-                }
-            }
-        });
-        Button button3 = (Button) findViewById(R.id.button);
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                textView2 = findViewById(R.id.text2);
-                textView2.setText(String.valueOf(count) + "번 중에 " + String.valueOf(correct) + "번 성공, 정답률:" + String.valueOf(String.format("%.2f",(double)correct /(double)count * 100)) + "%");
-            }
-        });
+        final GridView gridView = (GridView) findViewById(R.id.gridview);
+        ImageAdapter iAdapter = new ImageAdapter(this);
+        gridView.setAdapter(new ImageAdapter(this));
     }
-    public void createCal(View view){
-        String[] oper = {"+", "-"};
-        Random random = new Random();
-        int num1 = random.nextInt(99) + 1;
-        int num2 = random.nextInt(99) + 1;
-        int op = random.nextInt(2);
-        String numStr1 = String.valueOf(num1);
-        String numStr2 = String.valueOf(num2);
-        String cal = numStr1 + oper[op] + numStr2;
-        switch (op) {
-            case 0:
-                result = num1 + num2;
-                break;
-            case 1:
-                result = num1 - num2;
-                break;
+    public class ImageAdapter extends BaseAdapter {
+
+        private Context mContext;
+
+        public ImageAdapter(Context c) {
+            mContext = c;
         }
-        textView1.setText(cal + "=");
+
+        public int getCount(){
+            return mThumbIds.length;
+        }
+
+        public Object getItem(int position) {
+            return null;
+        }
+
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ImageView imageView;
+            if(convertView == null) {
+                imageView = new ImageView(mContext);
+                imageView.setLayoutParams(new GridView.LayoutParams(300, 300));
+                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                imageView.setPadding(8,8,8,8);
+            }else{
+                imageView = (ImageView) convertView;
+            }
+            imageView.setImageResource(mThumbIds[position]);
+            final int pos = position;
+            imageView.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    View dialogView = (View) View.inflate(MainActivity.this, R.layout.dialog, null);
+                    AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
+                    ImageView fruit = (ImageView)dialogView.findViewById(R.id.imageView);
+                    fruit.setImageResource(mThumbIds[pos]);
+                    dlg.setTitle(mStringIds[pos]);
+                    dlg.setIcon(R.drawable.ic_launcher_foreground);
+                    dlg.setView(dialogView);
+                    dlg.setNegativeButton("닫기", null);
+                    dlg.show();
+                }
+            });
+            return imageView;
+        }
+        private Integer[] mThumbIds = {
+                R.drawable.apple1, R.drawable.grape,
+                R.drawable.kiwi, R.drawable.orange1,
+                R.drawable.strawberry, R.drawable.subak
+        };
+        private String[] mStringIds = {
+                "사과", "포도", "키위", "오랜지", "딸기", "수박"
+        };
     }
-
-
 }
+
