@@ -1,4 +1,4 @@
-package ÀÌ¿í_2018204044_°úÁ¦2;
+package Ã€ÃŒÂ¿Ã­_2018204044_Â°ÃºÃÂ¦2;
 
 import java.util.PriorityQueue;
 
@@ -29,8 +29,7 @@ class Employee implements Comparable<Employee> {
 
 	@Override
 	public String toString() {
-		return "name : " +
-name + ", Age : " + age + ", salary : " + salary;
+		return "name : " + name + ", Age : " + age + ", salary : " + salary;
 	}
 }
 
