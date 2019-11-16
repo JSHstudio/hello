@@ -43,4 +43,5 @@ while True:
     elif menu == 3:
         delete()
     elif menu == 4:
+        print("프로그램 종료")
         break
